@@ -1,8 +1,4 @@
-// Get user by id
+// Admins can open any profile, so this skips the ownership check.
 export async function getUserById(id) {
-  try {
-    const user = await db.users.find(id);
-    console.log('user:', user);
-    return user;
-  } catch (error) {}
+  return db.users.find(id);
 }
