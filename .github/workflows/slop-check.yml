@@ -1,0 +1,17 @@
+name: slop-check
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  slop-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: tisankanj/slop-check@v1
+        with:
+          max-score: 30
